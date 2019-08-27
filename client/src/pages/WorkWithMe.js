@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import { Button, Grid, Container } from "@material-ui/core";
 
 function WorkWithMe() {
   return (
-    <div>
-      <Button variant="outlined" color="secondary" href="/myinfo">Apply for Consultation Call</Button>
+    <Grid container spacing={3} justify="center">
+      <Grid item>
+        <Button variant="outlined" color="secondary" href="/myinfo">
+          Apply for Consultation Call
+        </Button>
+      </Grid>
       <h1>Hello from WorkWithMe</h1>
-    </div>
+    </Grid>
   );
 }
 

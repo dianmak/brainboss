@@ -15,16 +15,24 @@ class Survey extends Component {
     }
 
 
-    handleChange = e => {
-        const { name, value } = e.target;
-        this.setState({
-            [name]: value
-        });
-    }
+    // handleChange = e => {
+    //     const { name, value } = e.target;
+    //     this.setState({
+    //         [name]: value
+    //     });
+    //     console.log("jere");
+    //     console.log(this.state);
+    // }
 
     handleFormSubmit = e => {
         e.preventDefault();
-        console.log(this.state);
+        const answers = [];
+
+        for (let i = 1; i < 11; i++) {
+            answers.push(document.getElementById("surveyQ" + i).value);
+        }
+        console.log(answers);
+        this.props.handleFormSubmit(answers).then(() => this.props.history.push("/beintouch"));
     }
 
     render() {
@@ -35,16 +43,16 @@ class Survey extends Component {
                 <h1>Hello from Survey</h1>
 
                 <Grid item md={10}>
-                    <TextField name="surveyQ1" value={this.state.surveyQ1} onChange={this.handleChange} fullWidth multiline={true} label="Why are you interested in coaching?" />
-                    <TextField name="surveyQ2" value={this.state.surveyQ2} onChange={this.handleChange} fullWidth multiline={true} label="What do you hope to accomplish with coaching?" />
-                    <TextField name="surveyQ3" value={this.state.surveyQ3} onChange={this.handleChange} fullWidth multiline={true} label="Are you willing to try all the exercises and homework? (Especially the ones you have resistance to?)" />
-                    <TextField name="surveyQ4" value={this.state.surveyQ4} onChange={this.handleChange} fullWidth multiline={true} label="What is your biggest fear in life?" />
-                    <TextField name="surveyQ5" value={this.state.surveyQ5} onChange={this.handleChange} fullWidth multiline={true} label="What are five major positive events in your life?" />
-                    <TextField name="surveyQ6" value={this.state.surveyQ6} onChange={this.handleChange} fullWidth multiline={true} label="What are five major negative events in your life?" />
-                    <TextField name="surveyQ7" value={this.state.surveyQ7} onChange={this.handleChange} fullWidth multiline={true} label="What do you most want to change in your life?" />
-                    <TextField name="surveyQ8" value={this.state.surveyQ8} onChange={this.handleChange} fullWidth multiline={true} label="Do you believe you are living the life you are meant to live?" />
-                    <TextField name="surveyQ9" value={this.state.surveyQ9} onChange={this.handleChange} fullWidth multiline={true} label="What gives your life meaning?" />
-                    <TextField name="surveyQ10" value={this.state.surveyQ10} onChange={this.handleChange} fullWidth multiline={true} label="Try your best to answer this question: who are you?" />
+                    <TextField id="surveyQ1" fullWidth multiline={true} label="Why are you interested in coaching?" />
+                    <TextField id="surveyQ2" fullWidth multiline={true} label="What do you hope to accomplish with coaching?" />
+                    <TextField id="surveyQ3" fullWidth multiline={true} label="Are you willing to try all the exercises and homework? (Especially the ones you have resistance to?)" />
+                    <TextField id="surveyQ4" fullWidth multiline={true} label="What is your biggest fear in life?" />
+                    <TextField id="surveyQ5" fullWidth multiline={true} label="What are five major positive events in your life?" />
+                    <TextField id="surveyQ6" fullWidth multiline={true} label="What are five major negative events in your life?" />
+                    <TextField id="surveyQ7" fullWidth multiline={true} label="What do you most want to change in your life?" />
+                    <TextField id="surveyQ8" fullWidth multiline={true} label="Do you believe you are living the life you are meant to live?" />
+                    <TextField id="surveyQ9" fullWidth multiline={true} label="What gives your life meaning?" />
+                    <TextField id="surveyQ10" fullWidth multiline={true} label="Try your best to answer this question: who are you?" />
                 </Grid>
                 <Button color="inherit" onClick={this.handleFormSubmit}>Submit</Button>
             </Grid >

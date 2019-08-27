@@ -1,47 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Grid, AppBar, Toolbar, Button, Typography } from "@material-ui/core";
+import { Grid, AppBar, Toolbar, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
-const style = makeStyles(theme => ({
-    root: { flexGrow: 1 },
-    items: { flexGrow: 1 },
-    login: {
-        marginLeft: "4em",
-        position: 'relative'
-    },
-    someButton: {
-        marginLeft: "4em",
-        marginRight: '4em'
-    },
-    aboutContact: {
-        marginLeft: '20em'
-    }
-}));
+import "../pages/styling/Navbar.css";
 
 function Navbar() {
-    const classes = style();
+  return (
+    <Grid container spacing={2}>
+      <AppBar position="static">
+        <Toolbar className="navbar">
+          <Link to="/" className="navitemleft">
+            HOME
+          </Link>
 
-    return (
-        <AppBar className={classes.root} position="static">
-            <Toolbar>
-                <Typography variant="h6" className={classes.someButton}>
-                    <Link to="/" >HOME </Link>
-                </Typography>
+          <Link to="/workwithme" className="navitem">
+            WORK WITH ME
+          </Link>
 
-                <Typography variant="h6" className={classes.someButton}>
-                    <Link to="/workwithme" > WORK WITH ME </Link>
-                </Typography>
+          <Link to="/about" className="navitem">
+            ABOUT & CONTACT
+          </Link>
 
-                <Typography variant="h6" className={classes.aboutContact}>
-                    <Link to="/about" > ABOUT & CONTACT </Link>
-                </Typography>
-
-                <Button color="inherit" className={classes.login}>Login</Button>
-
-            </Toolbar>
-        </AppBar >
-    );
+          <div className="login">
+            <Button href="/login">Login</Button>
+          </div>
+        </Toolbar>
+      </AppBar>
+    </Grid>
+  );
 }
 
 export default Navbar;

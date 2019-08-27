@@ -1,0 +1,41 @@
+.parallax {
+  /* The image used */
+  background-image: url("../../assets/images/wider.jpg");
+
+  /* Set a specific height */
+  height: 800px;
+  width: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  margin: 0;
+  padding-left: 100px;
+  padding-top: 250px;
+  /* font-family: "Poiret One", cursive; */
+  /* font-family: "Permanent Marker", cursive; */
+
+  font-family: "Montserrat", sans-serif;
+
+  color: #b08f26;
+}
+
+.titleLarge {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.titleSmall {
+  font-size: 24px;
+}
+
+.message {
+  color: #b08f26;
+  padding-left: 100px;
+  padding-top: 100px;
+}

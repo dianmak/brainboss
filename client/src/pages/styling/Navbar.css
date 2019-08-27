@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #003300;
+}
+
+.navitem {
+  color: #b08f26;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.navitemleft {
+  color: #b08f26;
+  padding: 20px;
+  padding-left: 100px;
+  text-decoration: none;
+}
+
+.login {
+  position: absolute;
+  right: 25px;
+  color: white;
+}
