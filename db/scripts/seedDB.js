@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/brainboss");
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://heroku_gl3t0hk5:heroku_gl3t0hk5@ds353457.mlab.com:53457/heroku_gl3t0hk5"
+);
 
 const users = [
   {
