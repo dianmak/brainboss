@@ -45,7 +45,6 @@ db.User.deleteMany({})
   .then(() => db.User.insertMany(users))
   .then(data => {
     console.log("Users inserted!" + data);
-    process.exit(0);
   })
   .catch(err => {
     console.error(err);
@@ -55,11 +54,15 @@ db.User.deleteMany({})
 db.Session.deleteMany({})
   .then(() => db.Session.insertMany(sessions))
   .then(data => {
-    console.log("Sessions inserted!" + data);
+    console.log(data);
     let arr = [];
     data.forEach(session => arr.push(session._id));
+    console.log(arr);
     db.User.updateOne({ email: "brody@mac.com" }, { sessions: arr }).then(
-      data => console.log("wheeeeeee" + data)
+      data => {
+        console.log("wheeeeeee" + data);
+        process.exit(0);
+      }
     );
   })
   .catch(err => {

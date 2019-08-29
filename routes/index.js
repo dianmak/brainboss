@@ -2,30 +2,53 @@ const path = require("path");
 const router = require("express").Router();
 const controller = require("../db/controllers/controller");
 const db = require("../db/models");
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
-//passport.use(new LocalStrategy(controller.login,{usernameField:"email", passwordField:"password"}));
-passport.use(new LocalStrategy(function (username, password, done){
-  console.log(username, password);
+passport.use(
+  new LocalStrategy(function(username, password, done) {
+    console.log(username, password);
+    console.log("WHEEEEEEEEEEEEEEE");
 
-  db.User.findOne({ email: username }, function(err, user) {
-      if (err) { return done(err); }
+    db.User.findOne({ email: username }, (err, user) => {
+      console.log("err: "+ err);
+      console.log("user: " + user);
+      if (err) {
+        console.log("ERROR");
+        return done(err);
+      }
       if (!user) {
-        return done(null, false, { message: 'User not found.' });
+        console.log("USER NOT FOUND");
+        return done(null, false, { message: "User not found." });
       }
-      if (!user.password===password) {
-        return done(null, false, { message: 'Incorrect password.' });
+      if (user.password != password) {
+        console.log("INCORRECT PASSWORD");
+        return done(null, false, { message: "Incorrect password." });
       }
+      console.log("LOGGED IN");
       return done(null, user);
     });
-}));
+  })
+);
 
-router.post("/login",
-  passport.authenticate('local', {session:false}), 
-  function(req,res){
-    console.log("here why why why");
-    res.json(req.body.username);
+passport.serializeUser(function(user, done) {
+  done(null, user.email);
+});
+
+passport.deserializeUser(function(email, done) {
+  db.User.findOne({email:email}, function(err, user) {
+    done(err, user);
+  });
+});
+
+router.post(
+  "/login",
+  passport.authenticate("local"),
+  function(req, res) {
+    console.log("in login route in router");
+    //res.json(req.body.username);
+    console.log("you have logged in and you are: " + req.user);
+    res.json({username: req.body.username});
   }
 );
 
@@ -41,7 +64,5 @@ router.get("/api/getsessions/:email", controller.getSessions);
 router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
-
-
 
 module.exports = router;

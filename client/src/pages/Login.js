@@ -8,8 +8,15 @@ class Login extends Component {
 
   handleClick = e => {
     e.preventDefault();
-    API.login(this.state.username, this.state.password);
-  }
+    API.login(this.state.username, this.state.password).then(data => {
+      console.log("in Login.js handleClick " + data);
+      if (data.status===200){
+        this.props.history.push("/mysessions");
+      }
+    }).catch(err=>{
+      console.log(err);
+    });
+  };
 
   handleChange = e => {
     console.log(e.target);
@@ -31,8 +38,18 @@ class Login extends Component {
           alignContent="center"
           direction="column"
         >
-          <TextField name="username" onChange={this.handleChange} display="block" label="Email" />
-          <TextField name="password" onChange={this.handleChange} display="block" label="Password" />
+          <TextField
+            name="username"
+            onChange={this.handleChange}
+            display="block"
+            label="Email"
+          />
+          <TextField
+            name="password"
+            onChange={this.handleChange}
+            display="block"
+            label="Password"
+          />
 
           <Button color="inherit" onClick={this.handleClick}>
             Log In
@@ -52,7 +69,6 @@ class Login extends Component {
     </div>
 </form> */}
         </Grid>
-        
       </div>
     );
   }

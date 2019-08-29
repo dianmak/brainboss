@@ -11,11 +11,9 @@ export default {
     console.log("in addsurveyresults in API.js");
     return axios.put("/api/addsurveyresults", answers);
   },
-  login: function(email, password) {
-    console.log("Attempting login in API.js");
-    console.log(email);
-    console.log(password);
-    return axios.post("/login", {email, password});
+  login: function(username, password) {
+    console.log("login in API.js");
+    return axios.post("/login", { username, password });
   },
   // Gets all sessions
   getSessions: function(email) {
