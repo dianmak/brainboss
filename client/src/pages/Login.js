@@ -2,20 +2,24 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button, TextField, Typography, Grid } from "@material-ui/core";
 import API from "../utils/API";
+import Nav from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 class Login extends Component {
   state = { username: "", password: "" };
 
   handleClick = e => {
     e.preventDefault();
-    API.login(this.state.username, this.state.password).then(data => {
-      console.log("in Login.js handleClick " + data);
-      if (data.status===200){
-        this.props.history.push("/mysessions");
-      }
-    }).catch(err=>{
-      console.log(err);
-    });
+    API.login(this.state.username, this.state.password)
+      .then(data => {
+        console.log("in Login.js handleClick " + data);
+        if (data.status === 200) {
+          this.props.history.push("/mysessions");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   handleChange = e => {
@@ -30,6 +34,7 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <h1>If you are an existing client, please log in below.</h1>
         <Grid
           container
@@ -54,21 +59,8 @@ class Login extends Component {
           <Button color="inherit" onClick={this.handleClick}>
             Log In
           </Button>
-
-          {/* <form action="/login" method="post">
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username"/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-        <input type="submit" value="Log In"/>
-    </div>
-</form> */}
         </Grid>
+        <Footer />
       </div>
     );
   }

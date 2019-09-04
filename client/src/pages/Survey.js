@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Grid, TextField, Button, makeStyles } from "@material-ui/core";
+import Nav from "../components/Navbar/Navbar";
 
 class Survey extends Component {
     constructor(props) {
@@ -38,7 +39,8 @@ class Survey extends Component {
     render() {
         //const classes = this.surveyStyles();
         return (
-
+        <div>
+        <Nav/>
             <Grid container alignItems="center" justify="center" alignContent="center" direction="column" >
                 <h1>Hello from Survey</h1>
 
@@ -56,6 +58,7 @@ class Survey extends Component {
                 </Grid>
                 <Button color="inherit" onClick={this.handleFormSubmit}>Submit</Button>
             </Grid >
+        </div>
         );
     }
 }

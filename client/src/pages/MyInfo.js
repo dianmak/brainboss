@@ -7,6 +7,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
 } from "@material-ui/pickers";
+import Nav from "../components/Navbar/Navbar";
 
 class MyInfo extends Component {
   state = {
@@ -28,6 +29,8 @@ class MyInfo extends Component {
 
   render() {
     return (
+      <div>
+      <Nav/>
       <Grid
         container
         alignItems="center"
@@ -72,7 +75,9 @@ class MyInfo extends Component {
         <Button color="inherit" onClick={this.handleFormSubmit}>
           Submit
         </Button>
+        <footer> <Typography> test footer </Typography> </footer>
       </Grid>
+      </div>
     );
   }
 }

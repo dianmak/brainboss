@@ -1,13 +1,26 @@
 import React, { Component, Button, Image } from "react";
 import API from "../utils/API";
 import Container from "@material-ui/core/Container";
-import { Grid, Typography } from "@material-ui/core";
+import {
+  Grid,
+  Typography,
+  BottomNavigation,
+  BottomNavigationAction,
+  Link
+} from "@material-ui/core";
 import "./styling/Home.css";
+import Nav from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 class Home extends Component {
+  logout() {
+    console.log("log out");
+  }
+
   render() {
     return (
       <div>
+        <Nav />
         <Grid container spacing={3}>
           <Grid item md={12}>
             <div className="parallax">
@@ -22,9 +35,12 @@ class Home extends Component {
             </div>
           </Grid>
         </Grid>
-        <Grid container spacing={3}>
-          <Typography>Text 1</Typography>
-        </Grid>
+        <Container align="center" id="textcontainer">
+          <p> We are going to discover how we think.</p>
+          <p> Text 2 </p>
+          <p> Text 2 </p>
+        </Container>
+        <Footer />
       </div>
     );
   }

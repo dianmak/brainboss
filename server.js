@@ -29,9 +29,13 @@ app.use(passport.session());
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/brainboss", {
-  useNewUrlParser: true
-});
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://heroku_gl3t0hk5:heroku_gl3t0hk5@ds353457.mlab.com:53457/heroku_gl3t0hk5",
+  {
+    useNewUrlParser: true
+  }
+);
 
 // Send every request to the React app
 // Define any API routes before this runs

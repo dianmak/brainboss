@@ -1,16 +1,27 @@
-#container{
-padding: 15px;
+#container {
+  padding: 15px;
 }
 
-#video{
-margin: auto;
-padding: 20px;
+#video {
+  margin: auto;
+  padding: 20px;
 }
 
-#coachcomments{
-margin: auto;
+#coachcomments {
+  margin: auto;
 }
 
-#clientcomments{
-margin: auto;
+.clientcomments {
+  margin: auto;
+}
+
+#navbar {
+  background-color: #003300;
+}
+
+#navitem {
+  color: #b08f26;
+  padding: 20px;
+  text-decoration: none;
+  margin: auto;
 }

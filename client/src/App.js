@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Nav from "./components/Navbar";
 import Home from "./pages/Home";
 import WorkWithMe from "./pages/WorkWithMe";
 import Survey from "./pages/Survey";
@@ -9,6 +8,7 @@ import MyInfo from "./pages/MyInfo";
 import Login from "./pages/Login";
 import BeInTouch from "./pages/BeInTouch";
 import MySessions from "./pages/MySessions";
+import About from "./pages/About";
 import API from "./utils/API";
 
 class App extends Component {
@@ -43,12 +43,10 @@ class App extends Component {
     return API.addSurveyResults({ email: this.state.email, answers: array });
   };
 
-
   render() {
     return (
       <Router>
         <div>
-          <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/workwithme" component={WorkWithMe} />
@@ -70,11 +68,12 @@ class App extends Component {
                 />
               )}
             />
+            <Route exact path="/about" component={About} />
             <Route exact path="/beintouch" component={BeInTouch} />
             <Route
               exact
               path="/loginpage"
-              render={props => (<Login {...props} login={this.handleLogin} />)}
+              render={props => <Login {...props} login={this.handleLogin} />}
             />
             <Route exact path="/mysessions" component={MySessions} />
           </Switch>
