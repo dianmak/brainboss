@@ -1,13 +1,6 @@
-import React, { Component, Button, Image } from "react";
-import API from "../utils/API";
+import React, { Component } from "react";
 import Container from "@material-ui/core/Container";
-import {
-  Grid,
-  Typography,
-  BottomNavigation,
-  BottomNavigationAction,
-  Link
-} from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import "./styling/Home.css";
 import Nav from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
