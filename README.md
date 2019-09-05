@@ -1,29 +1,28 @@
-# Create React Express App
+## TEAM SHELFIE
 
-## About This Boilerplate
+## Motivation ⁉
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+As a prospective client, I can access information about Brain Boss Life Coaching and request a consultation call in one place.
+As an existing client, I can log in to watch recordings of previous sessions, read notes from coach and submit homework.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Solution
 
-## Starting the app locally
+A one-stop website where clients can learn more about services offered, request a consultation call and keep track of coaching progress.
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+## Technology Utilized 💻
 
-```
-npm install
-```
+- Styling: Material UI, CSS
+- New Technology : Passport.js, date-fns, express-sessions
+- Helpers : axios, mongoose, react-player
+- Stack : M.E.R.N
+- Project Management : Github, Heroku, mLab, VSCode
 
-This should install node modules within the server and the client folder.
+## Future Features 🔮
 
-After both installations complete, run the following command in your terminal:
+Calendar capability for existing clients to schedule sessions and view scheduled sessions
+Shared Q&A section for all existing clients
+Testimonials
 
-```
-npm start
-```
+## Special Thanks 🙌
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+Mark, Daniel & Roxy, classmates.
