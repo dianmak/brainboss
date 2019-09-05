@@ -15,12 +15,15 @@ export default {
     console.log("login in API.js");
     return axios.post("/login", { username, password });
   },
+  logout: function() {
+    return axios.get("/logout");
+  },
   // Gets all sessions
   getSessions: function(email) {
     return axios.get("/api/getsessions/" + email);
   },
   // Post homework / add comment
-  addComment: function(id) {
-    return axios.post("/api/sessions/addcomment/" + id);
+  addComment: function(id, comment) {
+    return axios.post("/api/sessions/addcomment", { id, comment });
   }
 };

@@ -4,6 +4,7 @@ import { Grid } from "@material-ui/core";
 import "./styling/Home.css";
 import Nav from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import logo from "../assets/images/brainboss.png";
 
 class Home extends Component {
   logout() {
@@ -17,8 +18,8 @@ class Home extends Component {
         <Grid container spacing={3}>
           <Grid item md={12}>
             <div className="parallax">
+              <img src={logo} id="logo"></img>
               <div className="title">
-                <span className="titleLarge"> BRAIN BOSS </span>
                 <span className="titleSmall"> life coaching </span>
               </div>
               <div className="message">

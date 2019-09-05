@@ -26,8 +26,9 @@ class Survey extends Component {
           justify="center"
           alignContent="center"
           direction="column"
+          id="container"
         >
-          <h1>Hello from Survey</h1>
+          <h1>Prospective Client Survey</h1>
 
           <Grid item md={10}>
             <TextField
@@ -91,6 +92,7 @@ class Survey extends Component {
               label="Try your best to answer this question: who are you?"
             />
           </Grid>
+          <br></br>
           <Button color="inherit" onClick={this.handleFormSubmit}>
             Submit
           </Button>

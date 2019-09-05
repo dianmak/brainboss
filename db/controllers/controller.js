@@ -27,5 +27,12 @@ module.exports = {
       .populate("sessions")
       .then(user => res.json(user))
       .catch(err => res.status(422).json(err));
+  },
+
+  addComments: function(req, res) {
+    console.log("comment is " + req.body.comment);
+    db.Session.updateOne({ _id: req.body.id }, { homework: req.body.comment })
+      .then(dbSession => res.json(dbSession))
+      .catch(err => res.status(422).json(err));
   }
 };

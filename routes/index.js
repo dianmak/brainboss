@@ -11,7 +11,7 @@ passport.use(
     console.log("WHEEEEEEEEEEEEEEE");
 
     db.User.findOne({ email: username }, (err, user) => {
-      console.log("err: "+ err);
+      console.log("err: " + err);
       console.log("user: " + user);
       if (err) {
         console.log("ERROR");
@@ -36,27 +36,30 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(email, done) {
-  db.User.findOne({email:email}, function(err, user) {
+  db.User.findOne({ email: email }, function(err, user) {
     done(err, user);
   });
 });
 
-router.post(
-  "/login",
-  passport.authenticate("local"),
-  function(req, res) {
-    console.log("in login route in router");
-    //res.json(req.body.username);
-    console.log("you have logged in and you are: " + req.user);
-    res.json({username: req.body.username});
-  }
-);
+router.post("/login", passport.authenticate("local"), function(req, res) {
+  console.log("in login route in router");
+  //res.json(req.body.username);
+  console.log("you have logged in and you are: " + req.user);
+  res.json({ username: req.body.username });
+});
 
 router.post("/api/makeuser", controller.makeUser);
 
 router.put("/api/addsurveyresults", controller.addSurveyResults);
 
 router.get("/api/getsessions/:email", controller.getSessions);
+
+router.post("/api/sessions/addcomment", controller.addComments);
+
+router.get("/logout", function(req, res) {
+  req.logout();
+  res.json({ data: req.user });
+});
 
 //router.post("/api/login", controller.login);
 

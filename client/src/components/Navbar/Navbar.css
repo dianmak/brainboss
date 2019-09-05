@@ -1,5 +1,10 @@
 .navbar {
   background-color: #003300;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  font-style: normal;
+  letter-spacing: 1px;
 }
 
 .navitem {
@@ -15,8 +20,17 @@
   text-decoration: none;
 }
 
-.login {
+#login {
   position: absolute;
   right: 25px;
+  border-radius: 50%;
+  background-color: #003300;
   color: white;
+  border: 2px solid #b08f26;
+  font-size: 20px;
+  padding: 10px;
+  margin: auto;
+  font-weight: 200;
+  font-style: normal;
+  letter-spacing: 1px;
 }

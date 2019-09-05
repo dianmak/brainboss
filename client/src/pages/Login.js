@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Button, TextField, Typography, Grid } from "@material-ui/core";
+import { Button, TextField, Grid } from "@material-ui/core";
 import API from "../utils/API";
 import Nav from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import "./styling/Login.css";
 
 class Login extends Component {
   state = { username: "", password: "" };
@@ -35,27 +35,31 @@ class Login extends Component {
     return (
       <div>
         <Nav />
-        <h1>If you are an existing client, please log in below.</h1>
+
         <Grid
           container
           alignItems="center"
           justify="center"
           alignContent="center"
           direction="column"
+          id="containerlogin"
         >
+          <h1>If you are an existing client, please log in below.</h1>
+          <br></br>
           <TextField
             name="username"
             onChange={this.handleChange}
             display="block"
             label="Email"
           />
+          <br></br>
           <TextField
             name="password"
             onChange={this.handleChange}
             display="block"
             label="Password"
           />
-
+          <br></br>
           <Button color="inherit" onClick={this.handleClick}>
             Log In
           </Button>

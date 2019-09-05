@@ -1,11 +1,11 @@
 import React from "react";
-import { BottomNavigation, Button} from "@material-ui/core";
+import { BottomNavigation, Button } from "@material-ui/core";
 import "./Footer.css";
 
 function Footer() {
   return (
     <BottomNavigation id="footer">
-      <Button> Logout </Button>
+      <Button> Copyright </Button>
     </BottomNavigation>
   );
 }

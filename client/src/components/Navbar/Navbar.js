@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Grid, AppBar, Toolbar, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import "./Navbar.css";
 
 function Navbar() {
@@ -22,7 +21,9 @@ function Navbar() {
           </Link>
 
           <div className="login">
-            <Button href="/loginpage">Login</Button>
+            <button href="/loginpage" id="login">
+              LOG IN
+            </button>
           </div>
         </Toolbar>
       </AppBar>
