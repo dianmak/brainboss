@@ -20,11 +20,9 @@ function Navbar() {
             ABOUT & CONTACT
           </Link>
 
-          <div className="login">
-            <button href="/loginpage" id="login">
-              LOG IN
-            </button>
-          </div>
+          <Link to="/loginpage">
+            <button id="login">LOG IN</button>
+          </Link>
         </Toolbar>
       </AppBar>
     </Grid>
